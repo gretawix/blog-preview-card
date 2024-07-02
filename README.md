@@ -2,6 +2,8 @@
 
 ![Design preview for the Blog preview card coding challenge](./design/desktop-preview.jpg)
 
+## [Figma file](https://www.figma.com/design/Z6xWLi9dSHWmK8PjdBvIWL/blog-preview-card?node-id=28-2&t=vEnhSkQw7TeRCaee-1)
+
 ## Welcome! 👋
 
 Thanks for checking out this front-end coding challenge.
