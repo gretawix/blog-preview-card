@@ -12,6 +12,7 @@
   --white: #fff;
   --yellow: #f4d04e;
   --grey: #7f7f7f;
+  --spacing: 12px;
 }
 
 *,
@@ -21,10 +22,16 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Figtree, Arial, Helvetica, sans-serif;
+  color: var(--black);
 }
 
 body {
-  background: var(--yellow);
+  background-color: var(--yellow);
+}
+
+img {
+  width: 100%;
+  height: auto;
 }
 
 .heading {
@@ -33,18 +40,90 @@ body {
   line-height: 1.5;
   color: var(--black);
 }
+@media only screen and (max-width: 767px) {
+  .heading {
+    font-size: 1.25rem;
+  }
+}
 
-.paragraph {
+p {
   line-height: 1.5;
-}
-.paragraph-m {
+  font-weight: 500;
   font-size: 1rem;
-  font-weight: 500;
 }
-.paragraph-s {
+@media only screen and (max-width: 767px) {
+  p {
+    font-size: 0.875rem;
+  }
+}
+p.small {
   font-size: 0.875rem;
-  font-weight: 500;
 }
-.paragraph.bold {
+@media only screen and (max-width: 767px) {
+  p.small {
+    font-size: 0.75rem;
+  }
+}
+p.bold {
   font-weight: 800;
+}
+
+.card-section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: calc(var(--spacing) * 2);
+}
+
+.blog-preview-card {
+  transition: box-shadow 0.5s ease, color 0.5s ease;
+  max-width: 384px;
+  padding: calc(var(--spacing) * 2);
+  border-radius: 20px;
+  background-color: var(--white);
+  border: 1px solid var(--black);
+  box-shadow: 8px 8px 0 var(--black);
+  display: grid;
+  grid-template-rows: auto;
+  grid-gap: calc(var(--spacing) * 2);
+}
+@media only screen and (min-width: 767px) {
+  .blog-preview-card:hover {
+    box-shadow: 16px 16px 0 var(--black);
+  }
+  .blog-preview-card:hover .heading {
+    color: var(--yellow);
+  }
+}
+.blog-preview-card .blog-img {
+  border-radius: 10px;
+}
+.blog-preview-card .card-content {
+  display: grid;
+  grid-template-rows: auto;
+  grid-gap: var(--spacing);
+}
+.blog-preview-card .card-content .card-label {
+  border-radius: 4px;
+  background-color: var(--yellow);
+  padding: 4px 12px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.blog-preview-card .card-content .heading {
+  transition: color 0.5s ease;
+}
+.blog-preview-card .card-content .description {
+  color: var(--grey);
+}
+.blog-preview-card .author {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.blog-preview-card .author img {
+  width: 32px;
+  margin-right: 12px;
 }/*# sourceMappingURL=style.css.map */

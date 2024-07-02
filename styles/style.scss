@@ -6,12 +6,16 @@
     font-family: Figtree;
     src: url(./../assets/fonts/Figtree-VariableFont_wght.ttf);
 }
+
+$breakpoint: 767px;
+
 :root {
     --yellow: #f4d04e;
     --black: #111111;
     --white: #fff;
     --yellow: #f4d04e;
     --grey: #7f7f7f;
+    --spacing: 12px;
 }
 
 *,
@@ -21,9 +25,15 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Figtree, Arial, Helvetica, sans-serif;
+    color: var(--black);
 }
 body {
-    background: var(--yellow);
+    background-color: var(--yellow);
+}
+
+img {
+    width: 100%;
+    height: auto;
 }
 
 .heading {
@@ -31,19 +41,89 @@ body {
     font-weight: 800;
     line-height: 1.5;
     color: var(--black);
+    @media only screen and (max-width: $breakpoint) {
+        font-size: 1.25rem;
+    }
 }
 
-.paragraph {
+p {
     line-height: 1.5;
-    &-m {
-        font-size: 1rem;
-        font-weight: 500;
-    }
-    &-s {
+    font-weight: 500;
+    font-size: 1rem;
+    @media only screen and (max-width: $breakpoint) {
         font-size: 0.875rem;
-        font-weight: 500;
+    }
+
+    &.small {
+        font-size: 0.875rem;
+        @media only screen and (max-width: $breakpoint) {
+            font-size: 0.75rem;
+        }
     }
     &.bold {
         font-weight: 800;
+    }
+}
+
+.card-section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: calc(var(--spacing) * 2);
+}
+
+.blog-preview-card {
+    transition: box-shadow 0.5s ease, color 0.5s ease;
+    max-width: 384px;
+    padding: calc(var(--spacing) * 2);
+    border-radius: 20px;
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    box-shadow: 8px 8px 0 var(--black);
+    display: grid;
+    grid-template-rows: auto;
+    grid-gap: calc(var(--spacing) * 2);
+
+    @media only screen and (min-width: $breakpoint) {
+        &:hover {
+            box-shadow: 16px 16px 0 var(--black);
+            .heading {
+                color: var(--yellow);
+            }
+        }
+    }
+
+    .blog-img {
+        border-radius: 10px;
+    }
+
+    .card-content {
+        display: grid;
+        grid-template-rows: auto;
+        grid-gap: var(--spacing);
+        .card-label {
+            border-radius: 4px;
+            background-color: var(--yellow);
+            padding: 4px 12px;
+            width: fit-content;
+        }
+        .heading {
+            transition: color 0.5s ease;
+        }
+        .description {
+            color: var(--grey);
+        }
+    }
+
+    .author {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img {
+            width: 32px;
+            margin-right: 12px;
+        }
     }
 }
